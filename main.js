@@ -160,7 +160,9 @@ function reduce(array, f, acc) {
 
 function max (array){
     return reduce (array ,function(element){
-        return element> acc;
+        if(element>acc){
+            acc=element}
+        return element;
     },0)
 }
 
