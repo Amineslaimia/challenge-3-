@@ -12,10 +12,36 @@
 //lets make an employee profile using closures
 
 function employee(name, salary) {
+    var nbfriend = 0;
+    var friends ='';
+        function sayMyName(){
+        return name;
+    }
+    function sayHello(){
+        return 'hello'+name;
+    }
+    function increaseSalary (n){
+        salary = salary + n ;
+        return 'your salary now is ' +salary;
+    }
+    function addFriend (employee){
+        friends= friends +' '+ employee.name
+        nbfriend = nbfriend + 1;
+        return 'you just became friend with '+ friends;
+    }
+    function listFriends (){
+        return 'you have ' + nbfriend+ ' friends';
+   }
     return {
         name: name,
-        salary: salary
+        salary: salary,
+        sayMyName: sayMyName(),
+        sayHello: sayHello(),
+        increaseSalary: increaseSalary(),
+        addFriend:addFriend(employee),
+        listFriends:listFriends()
     }
+    
 }
 
 var employeeA = employee("jack", 100);
@@ -24,6 +50,7 @@ var employeeC = employee("Sara", 150);
 
 
 //create a function when invoked returns the name of that employee.
+
 
 // employeeA.sayMyName(); // "jack"
 // employeeB.sayMyName(); // "Mark"
@@ -69,10 +96,38 @@ var employeeC = employee("Sara", 150);
 
 
 // Write your code here .....
+function Pet (name){
+   var  pet= {};
+        pet.name= name;
+        pet.addInfo=addInfo;
+        pet.addAge=addAge;
+        pet.availabilitypet=availabilitypet;
 
+        var availability= false;
+    
+        
+    var addInfo = function (age , owner,gender,species){
+        pet.age=age;
+        pet.owner=owner;
+        pet.gender= gender;
+        pet.species= species;
+
+    },
+    var addAge = function (n){
+        this.age = this.age + n
+        
+    }
+    var availabilitypet =function(){
+        return availability= !availability;
+
+    }
+    
+   
+    return pet ;
+}
 
 // Now, to make sure that you are actually reading, make a comment below this and type: Yes I am
-
+//yes I am
 //=============================================================================
 /*                                  Q3                                       */
 //=============================================================================
@@ -103,7 +158,11 @@ function reduce(array, f, acc) {
 
 // Write your code here .....
 
-
+function max (array){
+    return reduce (array ,function(element){
+        return element> acc;
+    },0)
+}
 
 
 //================================================================================
